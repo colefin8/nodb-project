@@ -1,0 +1,18 @@
+Stateful component
+Stateless display component
+Express Endpoint
+    one endpoint that uses req.body
+        POST or PUT
+Use a single component more than once
+Parameters/Queries
+Full CRUD
+Controller File
+REST
+Promises
+Destructuring
+Default Styling
+Title
+Flex Box
+Semantic Tags
+REQUIRED - 3/4 stack
+REQUIRED - plan

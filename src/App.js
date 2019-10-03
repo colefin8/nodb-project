@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
+import "./reset.css";
 import "./App.css";
 import axios from "axios";
 import PokeTeam from "./Components/PokeTeam";
@@ -44,7 +45,9 @@ class App extends Component {
 
   addToTeam = value => {
     if (this.state.team.length < 6) {
-      this.setState({ team: [...this.state.team, value] });
+      this.setState({
+        team: [...this.state.team, { name: value, details: {} }]
+      });
     }
   };
 
@@ -67,6 +70,19 @@ class App extends Component {
 
   changeName = (index, name) => {};
 
+  getDetails = (pokeName, i) => {
+    //pokeUrl is correctly being passed in as a string
+    axios
+      .get(`/api/pokemon/details/${pokeName}`)
+      .then(response => {
+        let teamCopy = this.state.team;
+        teamCopy[i].details = response.data;
+        this.setState({ team: teamCopy });
+        console.log("got details");
+      })
+      .catch(err => console.log(err));
+  };
+
   componentDidMount() {
     axios.get(`/api/pokemon/${this.state.gen}`).then(res => {
       this.setState({ pokemon: res.data });
@@ -77,9 +93,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <header>
+          {" "}
+          <GenSelect genChange={this.genChange} />
+          <div>{this.state.pokemon.length} Pokemon in selected games</div>
+        </header>
         {/* <button onClick={() => console.log(this.state.team)}>team</button> */}
-        <GenSelect genChange={this.genChange} />
-        <div>{this.state.pokemon.length}</div>
+
         <SearchBar
           filtered={this.state.filtered}
           // handleInput={this.handleInput}
@@ -87,6 +107,7 @@ class App extends Component {
           addToTeam={this.addToTeam}
         />
         <PokeTeam
+          getDetails={this.getDetails}
           team={this.state.team}
           changeName={this.changeName}
           removeFromTeam={this.removeFromTeam}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Types from "./Types";
+import TypeMatchups from "./TypeMatchups";
 
 class Pokemon extends Component {
   constructor() {
@@ -7,17 +8,19 @@ class Pokemon extends Component {
 
     this.state = {
       nickname: "",
-      typeMatchups: [],
       type1: "",
       type2: ""
     };
   }
 
   render = () => {
+    let type1 = "";
+    let type2 = "";
+
     if (this.props.e.details.types) {
-      this.setState({ type1: this.props.e.details.types[0].type.name });
+      type1 = this.props.e.details.types[0].type.name;
       if (this.props.e.details.types[1]) {
-        this.setState({ type2: this.props.e.details.types[1].type.name });
+        type2 = this.props.e.details.types[1].type.name;
       }
     }
     return (
@@ -35,21 +38,10 @@ class Pokemon extends Component {
             }
           }}
         ></input>
-        <button
-          onClick={() => {
-            console.log(this.props.e);
-            // this.props.e is an object
-            this.props.getDetails(
-              this.props.e.name.pokemon_species.name,
-              this.props.i
-            );
-          }}
-        >
-          Get Details
-        </button>
         {this.props.e.name.pokemon_species.name}
         Nickname: {this.state.nickname}
-        <Types type1={this.state.type1} type2={this.state.type2} />
+        <Types type1={type1} type2={type2} />
+        <TypeMatchups type1={type1} type2={type2} />
       </div>
     );
   };

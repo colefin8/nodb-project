@@ -9,6 +9,7 @@ function Details(props) {
       props.getDetails(e.name.pokemon_species.name, i);
     }
   });
+
   return (
     <div>
       <PokeTeam team={props.team} />

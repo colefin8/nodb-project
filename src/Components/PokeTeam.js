@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import Pokemon from "./Pokemon";
-import Types from "./Types";
 
 class PokeTeam extends Component {
   constructor() {
     super();
-
-    this.state = { teams: {} };
   }
 
   render() {
@@ -17,14 +14,6 @@ class PokeTeam extends Component {
 
         {this.props.team.map((e, i) => {
           console.log(e);
-          let type1 = "";
-          let type2 = "";
-          if (e.details.types) {
-            type1 = e.details.types[0].type.name;
-            if (e.details.types[1]) {
-              type2 = e.details.types[1].type.name;
-            }
-          }
           return (
             <div>
               <Pokemon
@@ -36,7 +25,6 @@ class PokeTeam extends Component {
                 getDetails={this.props.getDetails}
                 key={i}
               />
-              <Types type1={type1} type2={type2} />
             </div>
           );
         })}

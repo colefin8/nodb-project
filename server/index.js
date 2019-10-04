@@ -1,4 +1,4 @@
-require("dotenv").config({ path: __dirname + "/../../.env" });
+require("dotenv").config({ path: __dirname + "/../.env" });
 const controller = require("./controller");
 const express = require("express");
 const { SERVER_PORT } = process.env;

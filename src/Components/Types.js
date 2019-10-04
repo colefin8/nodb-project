@@ -11,7 +11,11 @@ function Types(props) {
     type2 = props.type2;
   }
   console.log(type1, type2);
-  return <h1>{type1}</h1>;
+  if (type2 === "") {
+    return <h1>{type1}</h1>;
+  } else {
+    return <h1>{(type1, type2)}</h1>;
+  }
 }
 
 export default Types;

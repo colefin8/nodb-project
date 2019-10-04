@@ -3,9 +3,11 @@ import React, { Component } from "react";
 import "./reset.css";
 import "./App.css";
 import axios from "axios";
-import PokeTeam from "./Components/PokeTeam";
-import SearchBar from "./Components/SearchBar";
+import Routes from "./Routes";
+// import PokeTeam from "./Components/PokeTeam";
+// import SearchBar from "./Components/SearchBar";
 import GenSelect from "./Components/GenSelect";
+import { HashRouter, Link } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -18,7 +20,6 @@ class App extends Component {
       team: []
     };
   }
-
   //this.state.team[0].pokemon_species.url
 
   filterPokemon = value => {
@@ -68,8 +69,6 @@ class App extends Component {
     });
   };
 
-  changeName = (index, name) => {};
-
   getDetails = (pokeName, i) => {
     //pokeUrl is correctly being passed in as a string
     axios
@@ -92,27 +91,22 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <HashRouter>
         <header>
           {" "}
           <GenSelect genChange={this.genChange} />
           <div>{this.state.pokemon.length} Pokemon in selected games</div>
         </header>
-        {/* <button onClick={() => console.log(this.state.team)}>team</button> */}
-
-        <SearchBar
+        <Routes
           filtered={this.state.filtered}
-          // handleInput={this.handleInput}
           filterPokemon={this.filterPokemon}
           addToTeam={this.addToTeam}
-        />
-        <PokeTeam
           getDetails={this.getDetails}
           team={this.state.team}
           changeName={this.changeName}
           removeFromTeam={this.removeFromTeam}
         />
-      </div>
+      </HashRouter>
     );
   }
 }

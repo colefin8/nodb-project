@@ -9,13 +9,12 @@ function Types(props) {
   let type2 = "";
   if (hasSecondType) {
     type2 = props.type2;
+    return <h1>{`Types: ${type1}, ${type2}`}</h1>;
+  } else {
+    return <h1>{`Type: ${type1}`}</h1>;
   }
   console.log(type1, type2);
-  if (type2 === "") {
-    return <h1>{type1}</h1>;
-  } else {
-    return <h1>{(type1, type2)}</h1>;
-  }
+  return <h1>{`Type: ${type1}`}</h1>;
 }
 
 export default Types;

@@ -49,6 +49,8 @@ class App extends Component {
       this.setState({
         team: [...this.state.team, { name: value, details: {} }]
       });
+    } else {
+      window.alert("You've already got 6 Pokemon in your team!");
     }
   };
 
@@ -93,9 +95,11 @@ class App extends Component {
     return (
       <HashRouter>
         <header>
-          {" "}
           <GenSelect genChange={this.genChange} />
-          <div>{this.state.pokemon.length} Pokemon in selected games</div>
+          <div className="number">
+            {this.state.pokemon.length} Pokemon in selected game
+          </div>
+          <div className="titleIcon"></div>
         </header>
         <Routes
           filtered={this.state.filtered}
@@ -103,7 +107,6 @@ class App extends Component {
           addToTeam={this.addToTeam}
           getDetails={this.getDetails}
           team={this.state.team}
-          changeName={this.changeName}
           removeFromTeam={this.removeFromTeam}
         />
       </HashRouter>

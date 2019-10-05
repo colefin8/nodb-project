@@ -5,22 +5,27 @@ import { Link } from "react-router-dom";
 
 function Home(props) {
   return (
-    <div>
+    <div className="App gameboyText">
       <SearchBar
         filtered={props.filtered}
         // handleInput={this.handleInput}
         filterPokemon={props.filterPokemon}
         addToTeam={props.addToTeam}
       />
-      <PokeTeam
-        getDetails={props.getDetails}
-        team={props.team}
-        changeName={props.changeName}
-        removeFromTeam={props.removeFromTeam}
-      />
-      <button>
-        <Link to="/details">Team Details</Link>
-      </button>
+      <div className="teamColumn">
+        <PokeTeam
+          route={props.route}
+          getDetails={props.getDetails}
+          team={props.team}
+          changeName={props.changeName}
+          removeFromTeam={props.removeFromTeam}
+        />
+        <button className="button gameboyText">
+          <Link to="/details" className="gameboyText">
+            Team Details
+          </Link>
+        </button>
+      </div>
     </div>
   );
 }

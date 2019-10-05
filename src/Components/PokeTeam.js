@@ -10,15 +10,15 @@ class PokeTeam extends Component {
     // console.log(this.props.team);
     return (
       <div>
-        <h2>Your Team!</h2>
+        <h2 className="gameboyText">Your Team!</h2>
 
         {this.props.team.map((e, i) => {
           console.log(e);
           return (
             <div>
               <Pokemon
+                route={this.props.route}
                 i={i}
-                changeName={this.props.changeName}
                 removeFromTeam={this.props.removeFromTeam}
                 e={e}
                 // gets passed in to Pokemon, getDetails

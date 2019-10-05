@@ -17,7 +17,8 @@ const TYPES = [
   "ghost",
   "dragon",
   "dark",
-  "steel"
+  "steel",
+  "fairy"
 ];
 const TYPE_ORDER = {
   normal: 0,
@@ -36,7 +37,8 @@ const TYPE_ORDER = {
   ghost: 13,
   dragon: 14,
   dark: 15,
-  steel: 16
+  steel: 16,
+  fairy: 17
 };
 
 const TYPE_CHART = {
@@ -56,7 +58,8 @@ const TYPE_CHART = {
   ghost: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 0.5],
   dragon: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0.5],
   dark: [1, 1, 1, 1, 1, 1, 0.5, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 0.5],
-  steel: [1, 0.5, 0.5, 0.5, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0.5]
+  steel: [1, 0.5, 0.5, 0.5, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0.5],
+  fairy: [1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 2, 2, 0.5, 1]
 };
 
 function TypeMatchups(props) {
@@ -66,7 +69,7 @@ function TypeMatchups(props) {
   let notVeryEffective = [];
   let notEffective = [];
   let combined = [];
-  if (type2) {
+  if (type2 !== "") {
     for (let i = 0; i < TYPES.length; i++) {
       combined.push(TYPE_CHART[type1][i] * TYPE_CHART[type2][i]);
     }
@@ -75,20 +78,29 @@ function TypeMatchups(props) {
   }
 
   combined.forEach((e, i) => {
-    if (e === 0.5) {
+    if (e <= 0.5 && e > 0) {
       notVeryEffective.push(TYPES[i]);
     } else if (e === 0) {
       notEffective.push(TYPES[i]);
-    } else if (e === 2) {
+    } else if (e >= 2) {
       superEffective.push(TYPES[i]);
     }
   });
 
   return (
     <div>
-      <h2>Weak to: {superEffective}</h2>
-      <h2>Takes less damage from: {notVeryEffective}</h2>
-      <h2>Takes no damage from {notEffective}</h2>
+      <h2>
+        <span className="typeMatchup">Weak to: </span>
+        {superEffective.join(", ")}
+      </h2>
+      <h2>
+        <span className="typeMatchup">Takes less damage from: </span>
+        {notVeryEffective.join(", ")}
+      </h2>
+      <h2>
+        <span className="typeMatchup">Takes no damage from: </span>
+        {notEffective.join(", ")}
+      </h2>
     </div>
   );
 }

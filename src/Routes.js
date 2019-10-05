@@ -11,6 +11,7 @@ function Routes(props) {
         path="/"
         render={() => (
           <Home
+            route={"Home"}
             filtered={props.filtered}
             filterPokemon={props.filterPokemon}
             addToTeam={props.addToTeam}
@@ -24,7 +25,13 @@ function Routes(props) {
       <Route
         path="/details"
         render={() => (
-          <Details team={props.team} getDetails={props.getDetails} />
+          <Details
+            route={"Details"}
+            team={props.team}
+            getDetails={props.getDetails}
+            changeName={props.changeName}
+            removeFromTeam={props.removeFromTeam}
+          />
         )}
       />
     </Switch>

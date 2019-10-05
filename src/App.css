@@ -1,3 +1,125 @@
+@font-face {
+  font-family: "pokemon_gbregular";
+  src: url("./fonts/pokemon_gb-webfont.woff2") format("woff2"),
+    url("./fonts/pokemon_gb-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* #FFCB05 yellow
+#3466AF blue 
+#E4E6E3 gameboy screen grey
+#AAACA9 darker grey 
+#131412 black*/
+
 body {
-  background-color: darkslategray;
+  background-color: #e4e6e3;
+}
+
+h2 {
+  font-family: "pokemon_gbregular";
+}
+
+header {
+  padding: 20px;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  height: 100px;
+  font-family: "pokemon_gbregular";
+  background-color: #aaaca9;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.input {
+  width: 250px;
+  height: 30px;
+  border: solid 4px #131412;
+  padding: 2px;
+  background-color: transparent;
+  font-size: 18px;
+}
+.inputsmall {
+  border: solid 4px #131412;
+  padding: 2px;
+  background-color: transparent;
+}
+
+.number {
+  font-family: "pokemon_gbregular";
+}
+
+.pokemon {
+  background-color: #aaaca9;
+}
+.button {
+  padding: 5px;
+  height: 42px;
+  width: 240px;
+  border: solid 4px #131412;
+  background-color: #aaaca9;
+  font-size: 18px;
+}
+.buttonsmall {
+  border: solid 4px #131412;
+  background-color: #aaaca9;
+  font-size: 18px;
+}
+
+.App {
+  padding: 20px;
+  font-size: 24px;
+  margin-top: 100px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.searchList {
+  height: 200px;
+  width: 400px;
+  overflow: hidden;
+}
+
+.select {
+  background-color: #e4e6e3;
+  height: 25px;
+}
+
+.gameboyText {
+  font-family: "pokemon_gbregular";
+  color: #131412;
+  text-decoration: none;
+}
+
+.searchItem {
+  padding: 5px 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-content: space-between;
+  width: 400px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  background-size: cover;
+  background-image: url("C:\Users\Cole\Documents\DevMtn\week 4\no-db-project\src\icons\okeball-pokeball-pixel-11562866044nlupenwzqu.png");
+}
+
+.titleIcon {
+  width: 500px;
+  height: 75px;
+  background-size: cover;
+  background-image: url("C:\Users\Cole\Documents\DevMtn\week 4\no-db-project\src\icons\a835966f5ed1e4349476a0d18fa96711.png");
+}
+
+.teamColumn {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }

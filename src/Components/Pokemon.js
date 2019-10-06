@@ -27,7 +27,7 @@ class Pokemon extends Component {
     if (this.props.route === "Details") {
       return (
         <div key={this.props.i} className="pokemon">
-          <img src={sprite} />
+          <img src={sprite} alt={"Pokemon sprite"}/>
           <input
             onKeyDown={e => {
               if (e.key === "Enter") {

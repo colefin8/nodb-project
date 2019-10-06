@@ -54,21 +54,28 @@ class App extends Component {
     }
   };
 
+  getTeam = () => {
+    axios.get(`/api/pokemon/team/`)
+    .then((res) => {
+      this.setState({team: res.data})
+    })
+  }
+
   removeFromTeam = value => {
-    let newTeam = this.state.team;
-    console.log(newTeam);
-    newTeam.splice(value, 1);
-    this.setState({ team: newTeam });
+    axios.delete(`api/pokemon/team/${value}`)
+    .then(res => {
+      console.log(`response: ${res}`)
+      this.setState({team: res.data})})
+    .catch(err => console.log(`error: ${err}`))
   };
 
   genChange = value => {
     this.setState({ gen: value });
-    // console.log(e.target.value);
-    axios.get(`/api/pokemon/${value}`).then(res => {
-      console.log(res);
+    axios.get(`/api/pokemon/gen/${value}`).then(res => {
+      console.log(`response: ${res}`);
       this.setState({ pokemon: res.data, team: [] });
       console.log(this.state.pokemon);
-    });
+    }).catch(err => console.log(err));
   };
 
   getDetails = (pokeName, i) => {
@@ -85,13 +92,15 @@ class App extends Component {
   };
 
   componentDidMount() {
-    axios.get(`/api/pokemon/${this.state.gen}`).then(res => {
+    axios.get(`/api/pokemon/gen/${this.state.gen}`).then(res => {
       this.setState({ pokemon: res.data });
       // console.log(this.state.pokemon);
     });
+    this.getTeam()
   }
 
   render() {
+   this.getTeam();
     return (
       <HashRouter>
         <header>

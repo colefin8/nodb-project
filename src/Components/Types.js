@@ -13,8 +13,6 @@ function Types(props) {
   } else {
     return <h1>{`Type: ${type1}`}</h1>;
   }
-  console.log(type1, type2);
-  return <h1>{`Type: ${type1}`}</h1>;
 }
 
 export default Types;

@@ -25,7 +25,7 @@ header {
   position: fixed;
   width: 100vw;
   top: 0;
-  height: 100px;
+  height: 125px;
   font-family: "pokemon_gbregular";
   background-color: #aaaca9;
   display: flex;
@@ -107,14 +107,14 @@ header {
   height: 20px;
   border: 0;
   background-size: cover;
-  background-image: url("C:\Users\Cole\Documents\DevMtn\week 4\no-db-project\src\icons\okeball-pokeball-pixel-11562866044nlupenwzqu.png");
+  background-image: url("./icons/okeball-pokeball-pixel-11562866044nlupenwzqu.png");
 }
 
 .titleIcon {
-  width: 500px;
-  height: 75px;
+  width: 33%;
+  height: auto;
   background-size: cover;
-  background-image: url("C:\Users\Cole\Documents\DevMtn\week 4\no-db-project\src\icons\a835966f5ed1e4349476a0d18fa96711.png");
+  background-image: url("./icons/a835966f5ed1e4349476a0d18fa96711.png");
 }
 
 .teamColumn {

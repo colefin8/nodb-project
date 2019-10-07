@@ -25,10 +25,7 @@ function SearchBar(props) {
               }}
             >
               {e.pokemon_species.name}
-              <div
-                className="icon"
-                src={`C:UsersColeDocumentsDevMtnweek 4\no-db-projectsrciconsokeball-pokeball-pixel-11562866044nlupenwzqu.png`}
-              ></div>
+              <div className="icon"></div>
             </li>
           );
         })}

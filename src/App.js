@@ -20,6 +20,7 @@ class App extends Component {
   //this.state.team[0].pokemon_species.url
 
   filterPokemon = value => {
+    this.setState({ userInput: value });
     if (value) {
       this.setState({
         filtered: this.state.pokemon.filter((e, i) => {
@@ -80,7 +81,7 @@ class App extends Component {
       .then(res => {
         // console.log(`response: ${res}`);
         this.setState({ pokemon: res.data, userInput: "" });
-        // console.log(this.state.pokemon);
+        this.filterPokemon("");
       })
       .catch(err => console.log(err));
   };

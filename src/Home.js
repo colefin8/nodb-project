@@ -7,6 +7,7 @@ function Home(props) {
   return (
     <main className="App gameboyText">
       <SearchBar
+        userInput={props.userInput}
         filtered={props.filtered}
         // handleInput={this.handleInput}
         filterPokemon={props.filterPokemon}

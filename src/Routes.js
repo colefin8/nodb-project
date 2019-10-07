@@ -11,7 +11,8 @@ function Routes(props) {
         path="/"
         render={() => (
           <Home
-          getTeam={props.getTeam}
+            userInput={props.userInput}
+            getTeam={props.getTeam}
             route={"Home"}
             filtered={props.filtered}
             filterPokemon={props.filterPokemon}
@@ -27,7 +28,7 @@ function Routes(props) {
         path="/details"
         render={() => (
           <Details
-          getTeam={props.getTeam}
+            getTeam={props.getTeam}
             route={"Details"}
             team={props.team}
             getDetails={props.getDetails}

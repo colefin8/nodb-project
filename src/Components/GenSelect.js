@@ -10,28 +10,28 @@ function GenSelect(props) {
         onChange={e => props.genChange(e.target.value)}
       >
         <option className="gameboyText" value="2">
-          Red/Blue/Yellow
+          {`Red/Blue/Yellow`}
         </option>
         <option className="gameboyText" value="3">
-          Gold/Silver/Crystal
+          {"Gold/Silver/Crystal"}
         </option>
         <option className="gameboyText" value="4">
-          Ruby/Sapphire/Emerald
+          {"Ruby/Sapphire/Emerald"}
         </option>
         <option className="gameboyText" value="5">
-          Diamond/Pearl
+          {"Diamond/Pearl"}
         </option>
         <option className="gameboyText" value="6">
-          Platinum
+          {"Platinum"}
         </option>
         <option className="gameboyText" value="7">
-          HeartGold/SoulSilver
+          {"HeartGold/SoulSilver"}
         </option>
         <option className="gameboyText" value="8">
-          Black/White
+          {"Black/White"}
         </option>
         <option className="gameboyText" value="9">
-          Black2/White2
+          {"Black 2/White 2"}
         </option>
       </select>
     </div>

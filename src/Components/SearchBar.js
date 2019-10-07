@@ -6,6 +6,7 @@ function SearchBar(props) {
     <section className="searchColumn">
       <h2>{"Search:  click to catch!"}</h2>
       <input
+        value={props.userInput}
         className="gameboyText input"
         onChange={e => {
           // props.handleInput(e.target.value);
@@ -26,9 +27,7 @@ function SearchBar(props) {
               {e.pokemon_species.name}
               <div
                 className="icon"
-                src={
-                  "C:UsersColeDocumentsDevMtnweek 4\no-db-projectsrciconsokeball-pokeball-pixel-11562866044nlupenwzqu.png"
-                }
+                src={`C:UsersColeDocumentsDevMtnweek 4\no-db-projectsrciconsokeball-pokeball-pixel-11562866044nlupenwzqu.png`}
               ></div>
             </li>
           );

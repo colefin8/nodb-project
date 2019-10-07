@@ -93,7 +93,7 @@ function TypeMatchups(props) {
   // });
 
   //defending type chart
-  if (type2 != "") {
+  if (type2 !== "") {
     for (let key in TYPE_CHART) {
       type1chart.push(TYPE_CHART[key][TYPE_ORDER[type1]]);
       type2chart.push(TYPE_CHART[key][TYPE_ORDER[type2]]);

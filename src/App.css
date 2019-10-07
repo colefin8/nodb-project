@@ -18,6 +18,8 @@ body {
 
 h2 {
   font-family: "pokemon_gbregular";
+  margin-bottom: 20px;
+  border-bottom: solid #131412 4px
 }
 
 header {
@@ -34,6 +36,7 @@ header {
 }
 
 .input {
+  font-family: "pokemon_gbregular";
   width: 250px;
   height: 30px;
   border: solid 4px #131412;
@@ -71,14 +74,14 @@ header {
 .App {
   padding: 20px;
   font-size: 24px;
-  margin-top: 100px;
+  margin-top: 150px;
   width: 100vw;
   display: flex;
   justify-content: space-around;
 }
 
 .searchList {
-  height: 200px;
+  height: 440px;
   width: 400px;
   overflow: hidden;
 }
@@ -121,5 +124,18 @@ header {
   width: 600px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.searchColumn {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pokemonDisplay {
+margin: 5px;
+line-height: 30px;
+border-bottom: solid #131412 2px
 }

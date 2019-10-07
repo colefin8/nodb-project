@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Types from "./Types";
 import TypeMatchups from "./TypeMatchups";
+import axios from "axios";
 
 class Pokemon extends Component {
   constructor() {
@@ -11,11 +12,22 @@ class Pokemon extends Component {
     };
   }
 
+  componentDidMount(){
+    this.props.getTeam()
+  }
+
+  changeNickname = (value) =>{
+    axios.put(`/api/pokemon/team/${this.props.i}`, {value}).then(res =>{
+      this.setState({nickname: res.data[this.props.i].nickname})
+      console.log(this.state.nickname)
+    })
+  }
+
   render = () => {
     let type1 = "";
     let type2 = "";
     let sprite = "";
-
+    if(this.props.e !== null){
     if (this.props.e.details.types) {
       sprite = this.props.e.details.sprites.front_default;
       type1 = this.props.e.details.types[0].type.name;
@@ -23,15 +35,15 @@ class Pokemon extends Component {
         type2 = this.props.e.details.types[1].type.name;
       }
     }
-    console.log(this.props.e.details);
     if (this.props.route === "Details") {
       return (
-        <div key={this.props.i} className="pokemon">
+        <div key={this.props.i} className="pokemon gameboyText">
           <img src={sprite} alt={"Pokemon sprite"}/>
-          <input
+          <input className="input"
             onKeyDown={e => {
               if (e.key === "Enter") {
                 this.setState({ nickname: e.target.value });
+                this.changeNickname(e.target.value)
               }
             }}
           ></input>
@@ -43,27 +55,20 @@ class Pokemon extends Component {
       );
     } else {
       return (
-        <div>
+        <div className="pokemonDisplay">
           {this.props.e.name.pokemon_species.name}
-          <button
+          <br/><button
             className="buttonsmall gameboyText"
             onClick={() => this.props.removeFromTeam(this.props.i)}
           >
             Remove
           </button>
-          <input
-            className="inputsmall"
-            onKeyDown={e => {
-              if (e.key === "Enter") {
-                this.setState({ nickname: e.target.value });
-              }
-            }}
-          ></input>
-          Nickname: {this.state.nickname}
         </div>
+
       );
     }
-  };
+  } else return null
+} 
 }
 
 export default Pokemon;

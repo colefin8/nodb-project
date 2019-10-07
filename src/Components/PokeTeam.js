@@ -13,10 +13,10 @@ class PokeTeam extends Component {
         <h2 className="gameboyText">Your Team!</h2>
 
         {this.props.team.map((e, i) => {
-          console.log(e);
           return (
             <div>
               <Pokemon
+              getTeam={this.props.getTeam}
                 route={this.props.route}
                 i={i}
                 removeFromTeam={this.props.removeFromTeam}

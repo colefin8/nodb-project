@@ -18,6 +18,8 @@ app.delete(`/api/pokemon/team/:index`, controller.removeFromTeam)
 
 app.post(`/api/pokemon/team`, controller.addToTeam)
 
+app.put(`/api/pokemon/team/:index`, controller.editNickname)
+
 app.listen(SERVER_PORT, () => {
   console.log(`Server listening on ${SERVER_PORT}`);
 });

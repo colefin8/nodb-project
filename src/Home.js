@@ -14,6 +14,7 @@ function Home(props) {
       />
       <div className="teamColumn">
         <PokeTeam
+        getTeam={props.getTeam}
           route={props.route}
           getDetails={props.getDetails}
           team={props.team}

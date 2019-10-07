@@ -8,7 +8,6 @@ module.exports = {
       .get(`https://pokeapi.co/api/v2/pokedex/${num}`)
       .then(response => {
         const data = [...response.data.pokemon_entries];
-          console.log(response.data.pokemon_entries);
         res.status(200).send(data);
       })
       .catch(err => console.log(err));
@@ -32,14 +31,17 @@ module.exports = {
     res.status(200).send(team)
   },
   addToTeam(req, res){
-    const {addOn} = req.body
+    const addOn = req.body
+    console.log(addOn)
     team.push(addOn)
     res.status(200).send(team)
   },
   editNickname(req, res){
-    const {name} = req.body
+    const {value} = req.body
+    console.log(req.body)
     const {index} = req.params
-    team[index].nickname = name;
+    console.log(index)
+    team[index].nickname = value;
     res.status(200).send(team)
   }
 };

@@ -43,12 +43,13 @@ class App extends Component {
   // handleInput = input => {
   //   this.setState({ userInput: input });
   // };
-
+//value below is a pokemon object, it was working before CRUD
   addToTeam = value => {
     if (this.state.team.length < 6) {
-      this.setState({
-        team: [...this.state.team, { name: value, details: {} }]
-      });
+      axios.post (`/api/pokemon/team/`, {name: value, details: {}})
+      .then(res => {
+        this.setState({team: res.data})})  
+      .catch(err => console.log(err))  
     } else {
       window.alert("You've already got 6 Pokemon in your team!");
     }
@@ -57,7 +58,10 @@ class App extends Component {
   getTeam = () => {
     axios.get(`/api/pokemon/team/`)
     .then((res) => {
-      this.setState({team: res.data})
+      if(res.data[0] === null){} else {
+        this.setState({team: res.data})
+      }
+
     })
   }
 
@@ -100,7 +104,6 @@ class App extends Component {
   }
 
   render() {
-   this.getTeam();
     return (
       <HashRouter>
         <header>
@@ -111,6 +114,7 @@ class App extends Component {
           <div className="titleIcon"></div>
         </header>
         <Routes
+        getTeam={this.getTeam}
           filtered={this.state.filtered}
           filterPokemon={this.filterPokemon}
           addToTeam={this.addToTeam}

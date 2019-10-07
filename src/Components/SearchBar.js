@@ -3,7 +3,7 @@ import React from "react";
 
 function SearchBar(props) {
   return (
-    <div>
+    <div className="searchColumn">
       <h2>Search:</h2>
       <input
         className="gameboyText input"

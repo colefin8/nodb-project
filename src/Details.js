@@ -13,6 +13,7 @@ function Details(props) {
   return (
     <div className="App">
       <PokeTeam
+          getTeam={props.getTeam}
         route={props.route}
         team={props.team}
         removeFromTeam={props.removeFromTeam}

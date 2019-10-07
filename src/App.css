@@ -8,18 +8,38 @@
 
 /* #FFCB05 yellow
 #3466AF blue 
-#E4E6E3 gameboy screen grey
-#AAACA9 darker grey 
-#131412 black*/
+#B0B0B0 gameboy screen grey
+#5B5B5B darker grey 
+#010101 black
+#FFFFFF white*/
 
 body {
-  background-color: #e4e6e3;
+  background-color: #b0b0b0;
+}
+
+p {
+  line-height: 30px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+select {
+  border: 2px solid #010101;
+  background-color: #ffffff;
+  height: 25px;
+}
+
+select:focus {
+  outline: none;
 }
 
 h2 {
   font-family: "pokemon_gbregular";
   margin-bottom: 20px;
-  border-bottom: solid #131412 4px
+  border-bottom: solid #010101 4px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
 }
 
 header {
@@ -27,9 +47,9 @@ header {
   position: fixed;
   width: 100vw;
   top: 0;
-  height: 125px;
+  height: 110px;
   font-family: "pokemon_gbregular";
-  background-color: #aaaca9;
+  background-color: #5b5b5b;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
@@ -39,70 +59,102 @@ header {
   font-family: "pokemon_gbregular";
   width: 250px;
   height: 30px;
-  border: solid 4px #131412;
+  border: solid 4px #010101;
   padding: 2px;
-  background-color: transparent;
+  background-color: #ffffff;
   font-size: 18px;
 }
+
+.input:focus {
+  outline: none;
+}
+
 .inputsmall {
-  border: solid 4px #131412;
+  border: solid 4px #010101;
   padding: 2px;
-  background-color: transparent;
+  background-color: #ffffff;
+}
+
+.inputsmall:focus {
+  outline: none;
 }
 
 .number {
   font-family: "pokemon_gbregular";
+  font-size: 25px;
+  width: 33%;
 }
 
 .pokemon {
-  background-color: #aaaca9;
+  background-color: #5b5b5b;
+  border: 1px solid #010101;
+  color: #ffffff;
 }
 .button {
+  box-sizing: border-box;
+  cursor: pointer;
   padding: 5px;
   height: 42px;
   width: 240px;
-  border: solid 4px #131412;
-  background-color: #aaaca9;
+  border: solid 4px #010101;
+  background-color: #ffffff;
   font-size: 18px;
+  color: #5b5b5b;
 }
 .buttonsmall {
-  border: solid 4px #131412;
-  background-color: #aaaca9;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: solid 3px #010101;
+  background-color: #ffffff;
   font-size: 18px;
+  color: #5b5b5b;
+}
+
+.button:hover:focus {
+  border-top: solid 5px #010101;
+  border-left: solid 5px #010101;
+  outline: none;
+}
+
+.buttonsmall:hover:focus {
+  border-top: solid 4px #010101;
+  border-left: solid 4px #010101;
+  outline: none;
 }
 
 .App {
   padding: 20px;
   font-size: 24px;
-  margin-top: 150px;
-  width: 100vw;
+  margin-top: 120px;
+  width: calc(100vw - 57px);
   display: flex;
   justify-content: space-around;
 }
 
 .searchList {
-  height: 440px;
+  height: 375px;
   width: 400px;
   overflow: hidden;
 }
 
-.select {
-  background-color: #e4e6e3;
-  height: 25px;
-}
-
 .gameboyText {
   font-family: "pokemon_gbregular";
-  color: #131412;
+  color: #010101;
   text-decoration: none;
 }
 
 .searchItem {
   padding: 5px 0px;
   display: flex;
+  line-height: 25px;
   justify-content: flex-start;
   align-content: space-between;
   width: 400px;
+}
+
+.searchItem:hover {
+  cursor: pointer;
+  background-color: #5b5b5b;
 }
 
 .icon {
@@ -114,10 +166,11 @@ header {
 }
 
 .titleIcon {
+  text-align: right;
+  font-size: 30px;
   width: 33%;
-  height: auto;
-  background-size: cover;
-  background-image: url("./icons/a835966f5ed1e4349476a0d18fa96711.png");
+  /* background-size: cover;
+  background-image: url("./icons/a835966f5ed1e4349476a0d18fa96711.png"); */
 }
 
 .teamColumn {
@@ -125,6 +178,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 .searchColumn {
@@ -135,7 +189,40 @@ header {
 }
 
 .pokemonDisplay {
-margin: 5px;
-line-height: 30px;
-border-bottom: solid #131412 2px
+  margin: 5px;
+  line-height: 30px;
+  border-bottom: solid #010101 2px;
+}
+
+.genSelect {
+  width: 33%;
+}
+
+.detailsName {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%;
+  line-height: 30px;
+}
+
+.topRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.team {
+  width: 100%;
+}
+
+.types {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.typeMatchup {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
 }

@@ -11,14 +11,14 @@ function Details(props) {
   });
 
   return (
-    <div className="App">
+    <main className="App">
       <PokeTeam
-          getTeam={props.getTeam}
+        getTeam={props.getTeam}
         route={props.route}
         team={props.team}
         removeFromTeam={props.removeFromTeam}
       />
-    </div>
+    </main>
   );
 }
 

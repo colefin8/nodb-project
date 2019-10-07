@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 
 function Home(props) {
   return (
-    <div className="App gameboyText">
+    <main className="App gameboyText">
       <SearchBar
         filtered={props.filtered}
         // handleInput={this.handleInput}
         filterPokemon={props.filterPokemon}
         addToTeam={props.addToTeam}
       />
-      <div className="teamColumn">
+      <section className="teamColumn">
         <PokeTeam
-        getTeam={props.getTeam}
+          getTeam={props.getTeam}
           route={props.route}
           getDetails={props.getDetails}
           team={props.team}
@@ -26,8 +26,8 @@ function Home(props) {
             Team Details
           </Link>
         </button>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

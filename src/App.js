@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-// import logo from "./logo.svg";
 import "./reset.css";
 import "./App.css";
 import axios from "axios";
 import Routes from "./Routes";
-// import PokeTeam from "./Components/PokeTeam";
-// import SearchBar from "./Components/SearchBar";
 import GenSelect from "./Components/GenSelect";
-import { HashRouter, Link } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -43,43 +40,49 @@ class App extends Component {
   // handleInput = input => {
   //   this.setState({ userInput: input });
   // };
-//value below is a pokemon object, it was working before CRUD
+  //value below is a pokemon object, it was working before CRUD
   addToTeam = value => {
     if (this.state.team.length < 6) {
-      axios.post (`/api/pokemon/team/`, {name: value, details: {}})
-      .then(res => {
-        this.setState({team: res.data})})  
-      .catch(err => console.log(err))  
+      axios
+        .post(`/api/pokemon/team/`, { name: value, details: {} })
+        .then(res => {
+          this.setState({ team: res.data });
+        })
+        .catch(err => console.log(err));
     } else {
       window.alert("You've already got 6 Pokemon in your team!");
     }
   };
 
   getTeam = () => {
-    axios.get(`/api/pokemon/team/`)
-    .then((res) => {
-      if(res.data[0] === null){} else {
-        this.setState({team: res.data})
+    axios.get(`/api/pokemon/team/`).then(res => {
+      if (res.data[0] === null) {
+      } else {
+        this.setState({ team: res.data });
       }
-
-    })
-  }
+    });
+  };
 
   removeFromTeam = value => {
-    axios.delete(`api/pokemon/team/${value}`)
-    .then(res => {
-      console.log(`response: ${res}`)
-      this.setState({team: res.data})})
-    .catch(err => console.log(`error: ${err}`))
+    axios
+      .delete(`api/pokemon/team/${value}`)
+      .then(res => {
+        // console.log(`response: ${res}`);
+        this.setState({ team: res.data });
+      })
+      .catch(err => console.log(`error: ${err}`));
   };
 
   genChange = value => {
     this.setState({ gen: value });
-    axios.get(`/api/pokemon/gen/${value}`).then(res => {
-      console.log(`response: ${res}`);
-      this.setState({ pokemon: res.data, team: [] });
-      console.log(this.state.pokemon);
-    }).catch(err => console.log(err));
+    axios
+      .get(`/api/pokemon/gen/${value}`)
+      .then(res => {
+        // console.log(`response: ${res}`);
+        this.setState({ pokemon: res.data, userInput: "" });
+        // console.log(this.state.pokemon);
+      })
+      .catch(err => console.log(err));
   };
 
   getDetails = (pokeName, i) => {
@@ -90,7 +93,7 @@ class App extends Component {
         let teamCopy = this.state.team;
         teamCopy[i].details = response.data;
         this.setState({ team: teamCopy });
-        console.log("got details");
+        // console.log("got details");
       })
       .catch(err => console.log(err));
   };
@@ -100,7 +103,7 @@ class App extends Component {
       this.setState({ pokemon: res.data });
       // console.log(this.state.pokemon);
     });
-    this.getTeam()
+    this.getTeam();
   }
 
   render() {
@@ -109,12 +112,13 @@ class App extends Component {
         <header>
           <GenSelect genChange={this.genChange} />
           <div className="number">
-            {this.state.pokemon.length} Pokemon in selected game
+            {this.state.pokemon.length} Pokémon in selected game
           </div>
-          <div className="titleIcon"></div>
+          <h1 className="titleIcon">Pokémon Team Builder</h1>
         </header>
         <Routes
-        getTeam={this.getTeam}
+          userInput={this.state.userInput}
+          getTeam={this.getTeam}
           filtered={this.state.filtered}
           filterPokemon={this.filterPokemon}
           addToTeam={this.addToTeam}

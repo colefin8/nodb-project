@@ -2,8 +2,9 @@ import React from "react";
 
 function GenSelect(props) {
   return (
-    <div>
+    <div className="genSelect gameboyText">
       Game:
+      <br />
       <select
         className="gameboyText select"
         onChange={e => props.genChange(e.target.value)}

@@ -3,8 +3,8 @@ import React from "react";
 
 function SearchBar(props) {
   return (
-    <div className="searchColumn">
-      <h2>Search:</h2>
+    <section className="searchColumn">
+      <h2>{"Search:  click to catch!"}</h2>
       <input
         className="gameboyText input"
         onChange={e => {
@@ -20,7 +20,7 @@ function SearchBar(props) {
               className="searchItem"
               onClick={() => {
                 props.addToTeam(e);
-                console.log(e);
+                // console.log(e);
               }}
             >
               {e.pokemon_species.name}
@@ -34,7 +34,7 @@ function SearchBar(props) {
           );
         })}
       </ul>
-    </div>
+    </section>
   );
 }
 

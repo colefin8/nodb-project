@@ -12,6 +12,7 @@ module.exports = {
       })
       .catch(err => console.log(err));
   },
+
   details(req, res) {
     const { data } = req.params;
     axios
@@ -21,27 +22,31 @@ module.exports = {
       })
       .catch(err => console.log(err));
   },
-  getTeam(req,res){
-    res.status(200).send(team)
+
+  getTeam(req, res) {
+    res.status(200).send(team);
   },
-  removeFromTeam(req, res){
-    const {index} = req.params;
-    console.log(index)
-    team.splice(index, 1)
-    res.status(200).send(team)
+
+  removeFromTeam(req, res) {
+    const { index } = req.params;
+    // console.log(index);
+    team.splice(index, 1);
+    res.status(200).send(team);
   },
-  addToTeam(req, res){
-    const addOn = req.body
-    console.log(addOn)
-    team.push(addOn)
-    res.status(200).send(team)
+
+  addToTeam(req, res) {
+    const addOn = req.body;
+    // console.log(addOn);
+    team.push(addOn);
+    res.status(200).send(team);
   },
-  editNickname(req, res){
-    const {value} = req.body
-    console.log(req.body)
-    const {index} = req.params
-    console.log(index)
+
+  editNickname(req, res) {
+    const { value } = req.body;
+    // console.log(req.body);
+    const { index } = req.params;
+    // console.log(index);
     team[index].nickname = value;
-    res.status(200).send(team)
+    res.status(200).send(team);
   }
 };

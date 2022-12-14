@@ -43,10 +43,9 @@ module.exports = {
 
   editNickname(req, res) {
     const { value } = req.body;
-    // console.log(req.body);
     const { index } = req.params;
-    // console.log(index);
     team[index].nickname = value;
+    
     res.status(200).send(team);
   }
 };

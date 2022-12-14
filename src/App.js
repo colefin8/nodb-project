@@ -48,6 +48,7 @@ class App extends Component {
         .post(`/api/pokemon/team/`, { name: value, details: {} })
         .then(res => {
           this.setState({ team: res.data });
+          this.setState({ userInput: ''})
         })
         .catch(err => console.log(err));
     } else {
@@ -77,7 +78,7 @@ class App extends Component {
   genChange = value => {
     this.setState({ gen: value });
     axios
-      .get(`/api/pokemon/gen/${value}`)
+      .get(value ? `/api/pokemon/gen/${value}` : `/api/pokemon/gen/all`)
       .then(res => {
         // console.log(`response: ${res}`);
         this.setState({ pokemon: res.data, userInput: "" });
@@ -94,7 +95,6 @@ class App extends Component {
         let teamCopy = this.state.team;
         teamCopy[i].details = response.data;
         this.setState({ team: teamCopy });
-        // console.log("got details");
       })
       .catch(err => console.log(err));
   };
@@ -102,7 +102,6 @@ class App extends Component {
   componentDidMount() {
     axios.get(`/api/pokemon/gen/${this.state.gen}`).then(res => {
       this.setState({ pokemon: res.data });
-      // console.log(this.state.pokemon);
     });
     this.getTeam();
   }

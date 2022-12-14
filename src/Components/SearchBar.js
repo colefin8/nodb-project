@@ -9,7 +9,6 @@ function SearchBar(props) {
         value={props.userInput}
         className="gameboyText input"
         onChange={e => {
-          // props.handleInput(e.target.value);
           props.filterPokemon(e.target.value);
         }}
       />
@@ -17,11 +16,16 @@ function SearchBar(props) {
         {props.filtered.map((e, i) => {
           return (
             <li
+              tabIndex={0}
               key={i}
               className="searchItem"
               onClick={() => {
                 props.addToTeam(e);
-                // console.log(e);
+              }}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') {
+                  props.addToTeam(e)
+                }
               }}
             >
               {e.pokemon_species.name}

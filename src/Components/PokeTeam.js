@@ -9,11 +9,13 @@ class PokeTeam extends Component {
         <div className="team">
           <h2 className="gameboyText">
             <p>Your Team</p>
+              <Link to="/">
             <button className="button">
-              <Link to="/" className="gameboyText">
+              <span className="gameboyText">
                 Back
-              </Link>
+              </span>
             </button>
+              </Link>
           </h2>
           {this.props.team.map((e, i) => {
             return (

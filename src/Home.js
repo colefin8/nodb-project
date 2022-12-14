@@ -22,11 +22,11 @@ function Home(props) {
           changeName={props.changeName}
           removeFromTeam={props.removeFromTeam}
         />
-        <button className="button gameboyText">
-          <Link to="/details" className="gameboyText">
-            Team Details
+          <Link to="/details">
+            <button className="button gameboyText">
+                Team Details
+            </button>
           </Link>
-        </button>
       </section>
     </main>
   );

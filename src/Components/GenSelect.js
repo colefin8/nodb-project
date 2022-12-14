@@ -33,6 +33,9 @@ function GenSelect(props) {
         <option className="gameboyText" value="9">
           {"Black 2/White 2"}
         </option>
+        <option className="gameboyText" value="1">
+          {"All"}
+        </option>
       </select>
     </div>
   );
